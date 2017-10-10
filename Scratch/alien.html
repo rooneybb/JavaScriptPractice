@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Planets</title>
+  <style>
+    .redtext {color: orange; }
+    .bluetext {color: blue; }
+    .greentext {color: lawngreen;}
+  </style>
+  <script>
+    var clickedOn = false;
+
+    function init() {
+    var planet = document.getElementById("greenplanet");
+    console.log(planet.innerHTML);
+    planet.setAttribute("class", "redtext");
+    planet.innerHTML = "Red Alert: hit by phaser fire!";
+    console.log(planet.innerHTML);
+    planet.onclick = clicker;
+    planet.onmouseover = changer;
+  };
+
+    function changer(event) {
+        var planet = document.getElementById("greenplanet");
+        var hover = true;
+        while (hover){
+            planet.setAttribute("class", "greentext");
+            sleep(500);
+            hover = false;
+        }
+        planet.setAttribute("class", "redtext");
+
+
+    };
+
+    function clicker(event) {
+      //var clickedOn = false;
+      var planet = document.getElementById("greenplanet");
+        planet.innerHTML = "You just got clicked!!!"
+
+    };
+
+
+    window.onload = init;
+
+    </script>
+</head>
+<body>
+  <h1>Green Planet</h1>
+  <p id="greenplanet">All is well</p>
+  <h1>Red Planet</h1>
+  <p id="redplanet">Nothing to report</p>
+  <h1>Blue Planet</h1>
+  <p id="blueplanet", class="bluetext">All systems A-OK</p>
+</body>
+</html>
